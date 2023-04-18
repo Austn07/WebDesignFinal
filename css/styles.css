@@ -10767,7 +10767,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../assets/img/AP2bg.png");
+  background-image: linear-gradient(#F4959D, #C4FFFD), url("../assets/img/AP2bg.png"); /* background color and background picture*/
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -10778,7 +10778,7 @@ p {
 }
 
 .text-faded {
-  color: #f6e1c5;
+  color: #C4FFFD; /*changes the color of the second part of the title words at the top of the page!!!!!!!!!!!!!!*/
 }
 
 .site-heading {
@@ -10843,22 +10843,22 @@ p {
   font-weight: 800;
 }
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #e6a756;
+  color: #760E17; /*Cannot tell what this affects*/
 }
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 0.9rem;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: rgba(255, 255, 255, 0.4);
+    color: #68ACAB; /*Navbar link hover color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #e6a756;
+    color: #68ACAB; /*Cannot tell what this affects*/
   }
 }
 
 .btn {
-  box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
+  box-shadow: 0px 3px 3px 0px #68ACAB; /*button shadow color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 
 @media (min-width: 992px) {
@@ -10876,7 +10876,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: rgba(230, 167, 86, 0.9);
+  background-color: #68ACAB; /* color border of boxes in first and last pages!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 .cta .cta-inner {
   position: relative;
@@ -10891,12 +10891,12 @@ p {
   bottom: -0.5rem;
   left: -0.5rem;
   right: -0.5rem;
-  border: 0.25rem solid rgba(255, 255, 255, 0.85);
+  border: 0.25rem solid #760E17; /*I think it changes the outline of the box but cant tell*/
   z-index: -1;
 }
 
 .footer {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color: #760E17; /*changes the footer color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 
 .intro {
@@ -10949,14 +10949,14 @@ p {
   font-size: 0.9rem;
 }
 .list-hours .list-hours-item {
-  border-bottom: 1px solid rgba(230, 167, 86, 0.5);
+  border-bottom: 1px solid #290A10; /*changes the color of the lines seperating each day (on the store page)!!!!!!!!!*/
   padding-bottom: 0.25rem;
   margin-bottom: 1rem;
   font-style: italic;
 }
 .list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #e6a756;
+  color: #FAFAFA; /* changes the color of the day that it currently is (on the store page) !!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 @media (min-width: 992px) {
   .list-hours {
