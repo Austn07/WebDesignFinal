@@ -10818,8 +10818,8 @@ p {
   font-weight: 100;
 }
 
-.bg-faded {
-  background-color: #f6e1c5;
+.bg-faded { /* color of the boxes !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/ 
+  background-color: #760E17;
 }
 
 .btn-xl {
@@ -10832,14 +10832,14 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color: #760E17; /* Main navbar color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
-  color: #e6a756;
+  color: #760E17; /*Cannot tell what this affects*/
 }
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: #8CFFFB; /*Navbar link color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   font-weight: 800;
 }
 #mainNav .navbar-nav .nav-item.active .nav-link {
