@@ -1984,11 +1984,11 @@ progress {
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #6c757d;
+  color: #8CFFFB; /*this didnt change anything that I know of*/
   opacity: 1;
 }
 .form-control:disabled {
-  background-color: #e9ecef;
+  background-color: #8CFFFB; /*this didnt change anything that I know of*/
   opacity: 1;
 }
 .form-control::file-selector-button {
@@ -1996,8 +1996,8 @@ progress {
   margin: -0.375rem -0.75rem;
   -webkit-margin-end: 0.75rem;
           margin-inline-end: 0.75rem;
-  color: #212529;
-  background-color: #e9ecef;
+  color: #8CFFFB;/*look below*/
+  background-color: #FAFAFA;/*these two didnt change anything that I know of*/
   pointer-events: none;
   border-color: inherit;
   border-style: solid;
@@ -2483,7 +2483,7 @@ textarea.form-control-lg {
   color: #212529;
   text-align: center;
   white-space: nowrap;
-  background-color: #e9ecef;
+  background-color: #FAFAFA;
   border: 1px solid #ced4da;
   border-radius: 0.375rem;
 }
@@ -2795,20 +2795,20 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  --bs-btn-color: #000;
-  --bs-btn-bg: #e6a756;
-  --bs-btn-border-color: #e6a756;
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #eab46f;
-  --bs-btn-hover-border-color: #e9b067;
+  --bs-btn-color: #290A10; /*This is the color of the words for the button!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-bg: #8CFFFB; /*This is the button background color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-border-color: #8CFFFB; /* This is the button border color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-hover-color: #760E17; /*Word color when mouse is hovered over it*/
+  --bs-btn-hover-bg: #C4FFFD; /*color of the background when the mouse hovers over it*/
+  --bs-btn-hover-border-color: #C4FFFD;/*color of the border of the button when the mouse hovers over it*/
   --bs-btn-focus-shadow-rgb: 196, 142, 73;
-  --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #ebb978;
-  --bs-btn-active-border-color: #e9b067;
+  --bs-btn-active-color: #290A10;
+  --bs-btn-active-bg: #8CFFFB;
+  --bs-btn-active-border-color: #8CFFFB;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #e6a756;
-  --bs-btn-disabled-border-color: #e6a756;
+  --bs-btn-disabled-color: #290A10;
+  --bs-btn-disabled-bg: #8CFFFB;
+  --bs-btn-disabled-border-color: #8CFFFB;
 }
 
 .btn-secondary {
