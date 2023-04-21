@@ -2716,7 +2716,7 @@ textarea.form-control-lg {
   z-index: 4;
 }
 
-.btn {
+.btn {/*Start of button stuff!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
   --bs-btn-font-family: ;
@@ -3144,7 +3144,7 @@ textarea.form-control-lg {
 .dropdown,
 .dropstart,
 .dropup-center,
-.dropdown-center {
+.dropdown-center { /*I think this is all of the dropdown stuff for mobile users!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   position: relative;
 }
 
@@ -3555,7 +3555,7 @@ textarea.form-control-lg {
   border-top-right-radius: 0;
 }
 
-.nav {
+.nav { /*NAVBAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
@@ -4558,7 +4558,7 @@ textarea.form-control-lg {
   top: -1px;
 }
 
-.alert {
+.alert { /*alert stuff!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
   --bs-alert-bg: transparent;
   --bs-alert-padding-x: 1rem;
   --bs-alert-padding-y: 1rem;
@@ -10767,7 +10767,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(#F4959D, #C4FFFD), url("../assets/img/AP2bg.png"); /* background color and background picture*/
+  background-image: linear-gradient(#F4959D, #C4FFFD), url("../assets/img/AP2bg.png"); /* background color and background picture fro all of the pages*/
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -10949,14 +10949,14 @@ p {
   font-size: 0.9rem;
 }
 .list-hours .list-hours-item {
-  border-bottom: 1px solid #290A10; /*changes the color of the lines seperating each day (on the store page)!!!!!!!!!*/
+  border-bottom: 1px solid #C4FFFD; /*changes the color of the lines seperating each day (on the store page)!!!!!!!!!*/
   padding-bottom: 0.25rem;
   margin-bottom: 1rem;
   font-style: italic;
 }
 .list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #FAFAFA; /* changes the color of the day that it currently is (on the store page) !!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  color: #C4FFFD; /* changes the color of the day that it currently is (on the store page) !!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 @media (min-width: 992px) {
   .list-hours {
