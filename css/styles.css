@@ -10955,7 +10955,7 @@ p {
   font-style: italic;
 }
 .list-hours .list-hours-item.today {
-  /*font-weight: bold;*/
+  font-weight: bold;
   color: #8CFFFB; /* changes the color of the day that it currently is (on the store page) !!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 @media (min-width: 992px) {
