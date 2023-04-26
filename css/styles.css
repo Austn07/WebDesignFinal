@@ -10767,7 +10767,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(#F4959D, #C4FFFD), url("../assets/img/AP2bg.png"); /* background color and background picture fro all of the pages*/
+  background-image: linear-gradient(#F4959D, #C4FFFD), url("../assets/img/AP2bg.png"); /* background color and background picture for all of the pages*/
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -10876,7 +10876,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #68ACAB; /* color around the boxes on first and last pages!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  background-color:  #C4FFFD; /* color around the boxes on first and last pages!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 .cta .cta-inner {
   position: relative;
