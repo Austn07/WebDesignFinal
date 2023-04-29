@@ -7486,9 +7486,14 @@ textarea.form-control-lg {
 }
 
 .mx-5 {
-  margin-right: 3rem !important;
-  margin-left: 3rem !important;
+  margin-right: 5rem !important;
+  margin-left: 5rem !important;
 }
+.mx-6 {
+  margin-right: -5rem !important;
+  margin-left: -5rem !important;
+}
+
 
 .mx-auto {
   margin-right: auto !important;
@@ -10956,7 +10961,7 @@ p {
 }
 .list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #C4FFFD; /* changes the color of the day that it currently is (on the store page) !!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  color: #C4FFFD; /* changes the color of the day that it currently is (on the stream info page) !!!!!!!!!!!!!!!!!!!!!!!!!!*/
 }
 @media (min-width: 992px) {
   .list-hours {
@@ -10975,3 +10980,18 @@ p {
     margin-bottom: 1rem;
     font-style: italic;
 }
+.instabtn {
+  --bs-btn-color: #5C486D; /*This is the color of the words for the button!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-bg: linear-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); /*This is the button background color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-border-color: #5C486D; /* This is the button border color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-hover-color: #A842FF; /*Word color when mouse is hovered over it*/
+  --bs-btn-hover-bg: #D29EFF; /*color of the background when the mouse hovers over it*/
+  --bs-btn-hover-border-color: #A842FF;/*color of the border of the button when the mouse hovers over it*/
+  --bs-btn-focus-shadow-rgb: 5C486D;/*Idk what this changed*/
+  --bs-btn-active-color: #5C486D;
+  --bs-btn-active-bg: #A842FF;
+  --bs-btn-active-border-color: #5C486D;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #D29EFF;
+  --bs-btn-disabled-bg: #5C486D;
+  --bs-btn-disabled-border-color: #D29EFF;
