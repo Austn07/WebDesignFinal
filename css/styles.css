@@ -2812,12 +2812,12 @@ textarea.form-control-lg {
 }
 
 .btn-secondary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #2F170F;
-  --bs-btn-border-color: #2F170F;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #28140d;
-  --bs-btn-hover-border-color: #26120c;
+  --bs-btn-color: #feda75;
+  --bs-btn-bg: #d62976; /*This is the button background color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-border-color: #962fbf;
+  --bs-btn-hover-color: #feda75;
+  --bs-btn-hover-bg: #962fbf;
+  --bs-btn-hover-border-color: #d62976;
   --bs-btn-focus-shadow-rgb: 78, 58, 51;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #26120c;
@@ -7485,11 +7485,11 @@ textarea.form-control-lg {
   margin-left: 1.5rem !important;
 }
 
-.mx-5 {
+.mx-5r {
   margin-right: 5rem !important;
   margin-left: 5rem !important;
 }
-.mx-6 {
+.mx-5l {
   margin-right: -5rem !important;
   margin-left: -5rem !important;
 }
