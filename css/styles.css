@@ -2795,12 +2795,12 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  --bs-btn-color: #5C486D; /*This is the color of the words for the button!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  --bs-btn-bg: #A842FF; /*This is the button background color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  --bs-btn-border-color: #5C486D; /* This is the button border color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  --bs-btn-hover-color: #A842FF; /*Word color when mouse is hovered over it*/
-  --bs-btn-hover-bg: #D29EFF; /*color of the background when the mouse hovers over it*/
-  --bs-btn-hover-border-color: #A842FF;/*color of the border of the button when the mouse hovers over it*/
+  --bs-btn-color: #8CFFFB; /*This is the color of the words for the button!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-bg: #290A10; /*This is the button background color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-border-color: #8CFFFB; /* This is the button border color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  --bs-btn-hover-color: #C4FFFD; /*Word color when mouse is hovered over it*/
+  --bs-btn-hover-bg: #760E17; /*color of the background when the mouse hovers over it*/
+  --bs-btn-hover-border-color: #C4FFFD;/*color of the border of the button when the mouse hovers over it*/
   --bs-btn-focus-shadow-rgb: 5C486D;/*Idk what this changed*/
   --bs-btn-active-color: #5C486D;
   --bs-btn-active-bg: #A842FF;
@@ -10980,18 +10980,3 @@ p {
     margin-bottom: 1rem;
     font-style: italic;
 }
-.instabtn {
-  --bs-btn-color: #5C486D; /*This is the color of the words for the button!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  --bs-btn-bg: linear-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); /*This is the button background color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  --bs-btn-border-color: #5C486D; /* This is the button border color!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  --bs-btn-hover-color: #A842FF; /*Word color when mouse is hovered over it*/
-  --bs-btn-hover-bg: #D29EFF; /*color of the background when the mouse hovers over it*/
-  --bs-btn-hover-border-color: #A842FF;/*color of the border of the button when the mouse hovers over it*/
-  --bs-btn-focus-shadow-rgb: 5C486D;/*Idk what this changed*/
-  --bs-btn-active-color: #5C486D;
-  --bs-btn-active-bg: #A842FF;
-  --bs-btn-active-border-color: #5C486D;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #D29EFF;
-  --bs-btn-disabled-bg: #5C486D;
-  --bs-btn-disabled-border-color: #D29EFF;
