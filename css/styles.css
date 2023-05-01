@@ -2804,7 +2804,7 @@ textarea.form-control-lg {
   --bs-btn-focus-shadow-rgb: 5C486D;/*Idk what this changed*/
   --bs-btn-active-color: #5C486D;
   --bs-btn-active-bg: #8CFFFB; /*color when button is clicked*/
-  --bs-btn-active-border-color: #5C486D;
+  --bs-btn-active-border-color: #68ACAB;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #D29EFF;
   --bs-btn-disabled-bg: #5C486D;
