@@ -13,6 +13,14 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> <!--Identify and comment the use of a javascript libray (jQuery)-->
+			<script>
+			$(document).ready(function(){
+			  $("p").click(function(){
+				$(this).hide();
+			  });
+			});
+			</script> <!--makes the words of a specific <p> element disappear that is clicked-->
     </head>
     <body>
         <header>
@@ -49,7 +57,7 @@
                                     <span class="section-heading-lower">About Me!</span>
                                 </h2>
                                 <p>My name is Austin and I am currently going to college to study Computer Science. I am more specifically interested in the coding side of things. In fact, I actually made this whole website and everything in it!</p>
-                                <p class="mb-0">:)</p>
+                                <p class="mb-0"> The smallest size words will disappear if you click on them :)</p>
                             </div>
                         </div>
                     </div>
