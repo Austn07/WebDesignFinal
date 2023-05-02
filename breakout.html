@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Austn's Breakout Game</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      canvas {
+        background: #760E17;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		border: 5px solid #8CFFFB;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body bgcolor= black >
+    <canvas id="myCanvas" width="705" height="600"></canvas>
+
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var ballRadius = 10;
+	var ballColor = "#8CFFFB"; // variable and the starting color of the ball & paddle
+	var x = canvas.width/2;
+	var y = canvas.height-30;
+	var dx = 2;
+	var dy = -2;
+	var paddleHeight = 10;
+	var paddleWidth = 75;
+	var paddleX = (canvas.width-paddleWidth)/2;
+	var rightPressed = false;
+	var leftPressed = false;
+	var brickRowCount = 5; //5
+	var brickColumnCount = 7; //7
+	var brickWidth = 75; //75
+	var brickHeight = 20; //20
+	var brickPadding = 20; //20 - the space between bricks
+	var brickOffsetTop = 30;
+	var brickOffsetLeft = 30;
+	var score = 0;
+	var lives = 3;
+	var MAX_BOUNCE_ANGLE = 60 
+	var MAX_DX = 3 //left and right speed of the ball 
+	var MAX_DY = 3 //up and down speed of the ball
+	var ballStickToPaddle = true; // set the default of ballStickToPaddle to true
+	var blockWidth = 200;
+	var blockHeight = 50;
+	var blockX = canvas.width/2 - blockWidth/2;
+	var blockY = 275;
+	var blockColor = "#8CFFFB";
+		
+	var bricks = [];
+	for (var c = 0; c < brickColumnCount; c++) {
+		bricks[c] = [];
+		for (var r = 0; r < brickRowCount; r++) {
+			bricks[c][r] = { x: 0, y: 0, status: 1 };
+		}
+	}
+
+	document.addEventListener("keydown", keyDownHandler, false);
+	document.addEventListener("keyup", keyUpHandler, false);
+	document.addEventListener("mousemove", mouseMoveHandler, false);
+
+	function keyDownHandler(e) {
+		if(e.key == "Right" || e.key == "ArrowRight") {
+			rightPressed = true;
+		}
+		else if(e.key == "Left" || e.key == "ArrowLeft") {
+			leftPressed = true;
+		}
+		if (e.key == " " && ballStickToPaddle) { // only works if spacebar is pressed and the ball is sticking to the paddle
+			ballStickToPaddle = false; // unsticks the ball from the paddle
+			dx = 2;
+			dy = -2;
+			ballColor = "#8CFFFB"; //starting ball color?
+		}
+	}
+
+	function keyUpHandler(e) {
+		if(e.key == "Right" || e.key == "ArrowRight") {
+			rightPressed = false;
+		}
+		else if(e.key == "Left" || e.key == "ArrowLeft") {
+			leftPressed = false;
+		}
+	}
+	
+	function mouseMoveHandler(e) {
+	  const relativeX = e.clientX - canvas.offsetLeft;
+	  if (relativeX > 0 && relativeX < canvas.width) {
+		paddleX = relativeX - paddleWidth / 2;
+	  }
+	}
+
+	function collisionDetection() {
+	  for (var c = 0; c < brickColumnCount; c++) {
+		for (var r = 0; r < brickRowCount; r++) {
+		  var b = bricks[c][r];
+		  if (b.status == 1) {
+			var brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+			var brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+			// Check if the ball is within the boundaries of the brick
+			if (x + ballRadius > brickX && x - ballRadius < brickX + brickWidth && y + ballRadius > brickY && y - ballRadius < brickY + brickHeight) {
+			  // Check if the ball is coming from the top or bottom of the brick
+			  if ((y + ballRadius > brickY && dy < 0) || (y - ballRadius < brickY + brickHeight && dy > 0)) {
+				dy = -dy;
+			  }
+			  // Check if the ball is coming from the left or right of the brick
+			  else if ((x + ballRadius > brickX && dx < 0) || (x - ballRadius < brickX + brickWidth && dx > 0)) {
+				dx = -dx; // Change direction of dx
+			  }
+			  b.status = 0;
+			  score++;
+			  ballColor = getRandomColor();
+			  if (score == brickRowCount * brickColumnCount) {
+				alert("YOU WIN, CONGRATS!");
+				document.location.reload();
+			  }
+			}
+		  }
+		}
+	  }
+
+	  // Check for collision with block
+	  if (x + ballRadius > blockX && x - ballRadius < blockX + blockWidth &&
+		  y + ballRadius > blockY && y - ballRadius < blockY + blockHeight) {
+		if (dx > 0 && x < blockX + ballRadius) {
+		  dx = -dx; // Hit block from left, go right
+		  dy = -dy;
+		} else if (dx < 0 && x > blockX + blockWidth - ballRadius) {
+		  dx = -dx; // Hit block from right, go left
+		  dy = -dy;
+		}   
+		dy = -dy; // Hit block from top or bottom, go opposite y direction
+		ballColor = getRandomColor();
+	  }
+	  
+	  if (x + ballRadius >= paddleX && x - ballRadius <= paddleX + paddleWidth && y + ballRadius >= canvas.height - paddleHeight) {
+		var paddleCenter = paddleX + paddleWidth / 2;
+		var distanceFromCenter = x - paddleCenter;
+		var normalizedDistance = distanceFromCenter / (paddleWidth / 2);
+		var bounceAngle = normalizedDistance * MAX_BOUNCE_ANGLE;
+		var radians = bounceAngle * Math.PI / 180;
+		dx = MAX_DX * Math.sin(radians);
+		dy = -MAX_DY * Math.cos(radians);
+		ballColor = getRandomColor();
+	  }
+	}
+
+	function drawBall() {
+		if (ballStickToPaddle) { // if the ball should stick to the paddle
+			x = paddleX + paddleWidth/2; // set the ball position to the middle-right of the paddle
+			y = canvas.height - paddleHeight - ballRadius - 0.5;
+		} else { // if the ball is in motion
+			x += dx;
+			y += dy;
+		}
+		ctx.beginPath();
+		ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+		ctx.fillStyle = "#8CFFFB"; //ball color
+		ctx.fill();
+		ctx.closePath();
+	}
+
+	
+	function drawPaddle() {
+		ctx.beginPath();
+		ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+		ctx.fillStyle = "#8CFFFB"; //Paddle color
+		ctx.fill();
+		ctx.closePath();
+	}
+	
+	function drawBricks() {
+		for (var c = 0; c < brickColumnCount; c++) {
+			for (var r = 0; r < brickRowCount; r++) {
+				if (bricks[c][r].status == 1) {
+					var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+					var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+					bricks[c][r].x = brickX;
+					bricks[c][r].y = brickY;
+					ctx.beginPath();
+					ctx.rect(brickX, brickY, brickWidth, brickHeight);
+					ctx.fillStyle = ballColor;
+					ctx.fill();
+					ctx.closePath();
+				}
+			}
+		}
+	}
+	
+	function drawScore() {
+	  ctx.font = "16px Arial";
+	  ctx.fillStyle = "#8CFFFB";
+	  ctx.fillText("Score: "+score, 8, 20);
+	}
+	
+	function drawLives() {
+	  ctx.font = "16px Arial";
+	  ctx.fillStyle = "#8CFFFB";
+	  ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+	}
+
+	function drawBlock() {
+	  ctx.fillStyle = "#8CFFFB"; //block color
+	  ctx.fillRect(blockX, blockY, blockWidth, blockHeight);
+	}
+	
+	function draw() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		drawBricks();
+		drawBall();
+		drawPaddle();
+		collisionDetection();
+		drawScore();
+		drawLives();
+		drawBlock(); // call drawBlock() here
+		
+		if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+			dx = -dx;
+			ballColor = getRandomColor();
+		}
+		if(y + dy < ballRadius) {
+			dy = -dy;
+			ballColor = getRandomColor();
+		}
+		else if(y + dy > canvas.height-ballRadius) {
+			if(x > paddleX && x < paddleX + paddleWidth) {
+			   if(y= y-paddleHeight){
+				dy = -dy  ;
+				ballColor = getRandomColor();
+				 }
+			}
+			else {
+				lives--;
+					if (!lives) {
+					  alert("GAME OVER");
+					  document.location.reload();
+					} else {
+					  x = canvas.width / 2;
+					  y = canvas.height - 30;
+					  ballStickToPaddle = true;
+					  dx = 2;
+					  dy = -2;
+					  paddleX = (canvas.width - paddleWidth) / 2;
+					}
+			}
+		}
+		
+		if(rightPressed && paddleX < canvas.width-paddleWidth) {
+			paddleX += 6;
+		}
+		else if(leftPressed && paddleX > 0) {
+			paddleX -= 6;
+		}
+		
+		x += dx;
+		y += dy;
+		requestAnimationFrame(draw);
+	}
+	
+		function getRandomColor() { //changes the ball's color every time it hits a wall
+		var letters = "0123456789ABCDEF";
+		var ballColor = "#";
+		for (var i = 0; i < 6; i++) {
+			ballColor += letters[Math.floor(Math.random() * 16)];
+		}
+		return ballColor;	
+	}
+
+	draw();
+
+    </script>
+  </body>
+</html>
