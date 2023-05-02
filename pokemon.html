@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas { 
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 5px solid #8CFFFB;
+    margin: 0 auto;
+	background-color: black; 
+    background-image: url('images/Pokemonbg.png');
+    background-size: cover;
+}
+body {
+	background: #000;
+}
+p {
+color: #8cfffb;
+text-align: center;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePiece; //Identify and comment the use of javascript variables in code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+function startGame() {
+    myGamePiece = new component(100, 100, "images/AP2RubySpriteFacingDown.png", 10, 120, "image");
+    myGameArea.start();
+    
+	// Add event listeners for arrow key presses and releases
+    document.addEventListener("keydown", function(event) {
+        if (event.code === "ArrowUp") {
+            move("up");
+        }
+        else if (event.code === "ArrowDown") {
+            move("down");
+        }
+        else if (event.code === "ArrowLeft") {
+            move("left");
+        }
+        else if (event.code === "ArrowRight") {
+            move("right");
+        }
+    });
+    document.addEventListener("keyup", function(event) {
+        if (event.code === "ArrowUp" || event.code === "ArrowDown" || event.code === "ArrowLeft" || event.code === "ArrowRight") {
+            clearmove();
+        }
+    });
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 1200;
+        this.canvas.height = 500;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() { //prevents the character from leaving the canvas
+        // Check if the gamepiece is about to move outside of the canvas
+        if (this.x + this.speedX < 0 || this.x + this.speedX + this.width > myGameArea.canvas.width) {
+            this.speedX = 0;
+        }
+        if (this.y + this.speedY < 0 || this.y + this.speedY + this.height > myGameArea.canvas.height) {
+            this.speedY = 0;
+        }
+        // Update the position
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+let lastDir = "down"; // makes the last direction start as down
+let imageIndex = 0;
+const imagePaths = {
+  up: [ //cycles thru these images when walking up
+    "images/AP2RubySpriteWalkingUp1.png",
+    "images/AP2RubySpriteWalkingUp2-4.png",
+    "images/AP2RubySpriteWalkingUp3.png",
+	"images/AP2RubySpriteWalkingUp2-4.png",
+  ],
+  down: [//cycles thru these images when walking down
+    "images/AP2RubySpriteWalkingDown1.png",
+    "images/AP2RubySpriteWalkingDown2-4.png",
+    "images/AP2RubySpriteWalkingDown3.png",
+	"images/AP2RubySpriteWalkingDown2-4.png",
+  ],
+  left: [//cycles thru these images when walking left
+    "images/AP2RubySpriteWalkingLeft1.png",
+    "images/AP2RubySpriteWalkingLeft2-4.png",
+    "images/AP2RubySpriteWalkingLeft3.png",
+	"images/AP2RubySpriteWalkingLeft2-4.png",
+  ],
+  right: [//cycles thru these images when walking right
+    "images/AP2RubySpriteWalkingRight1.png",
+    "images/AP2RubySpriteWalkingRight2-4.png",
+    "images/AP2RubySpriteWalkingRight3.png",
+	"images/AP2RubySpriteWalkingRight2-4.png",
+  ],
+};
+
+function move(dir) {
+  clearInterval(myGamePiece.imageInterval); // clear any previous interval
+
+  let images = imagePaths[dir]; // get the images for the current direction
+  imageIndex = 0;
+  myGamePiece.image.src = images[imageIndex];
+  myGamePiece.imageInterval = setInterval(() => {
+    imageIndex = (imageIndex + 1) % images.length; // increment the index and loop back to 0
+    myGamePiece.image.src = images[imageIndex];
+  }, 200); // switch image every 0.2 seconds
+
+  if (dir == "up") {//movement speed directions of the character
+    myGamePiece.speedY = -2;
+  } else if (dir == "down") {
+    myGamePiece.speedY = 2;
+  } else if (dir == "left") {
+    myGamePiece.speedX = -2;
+  } else if (dir == "right") {
+    myGamePiece.speedX = 2;
+  }
+  lastDir = dir;
+}
+
+function clearmove() {
+	clearInterval(myGamePiece.imageInterval); // clear any previous interval
+    if (lastDir == "up") {
+        myGamePiece.image.src = "images/AP2RubySpriteFacingUp.png";
+    } else if (lastDir == "down") {
+        myGamePiece.image.src = "images/AP2RubySpriteFacingDown.png";
+    } else if (lastDir == "left") {
+        myGamePiece.image.src = "images/AP2RubySpriteFacingLeft.png";
+    } else if (lastDir == "right") {
+        myGamePiece.image.src = "images/AP2RubySpriteFacingRight.png";
+    }
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
+}
+</script>
+<div style="margin-left:auto; margin-right:auto; text-align:center; width:480px;">
+<br>
+  <button onmousedown="move('up')" onmouseup="clearmove()" ontouchstart="move('up')">UP</button><br><br>
+  <button onmousedown="move('left')" onmouseup="clearmove()" ontouchstart="move('left')">LEFT</button>
+  <button onmousedown="move('right')" onmouseup="clearmove()" ontouchstart="move('right')">RIGHT</button><br><br>
+  <button onmousedown="move('down')" onmouseup="clearmove()" ontouchstart="move('down')">DOWN</button>
+</div>
+
+</body>
+</html>

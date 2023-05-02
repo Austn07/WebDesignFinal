@@ -22,7 +22,7 @@
     <canvas id="myCanvas" width="705" height="600"></canvas>
 
 <script>
-	var canvas = document.getElementById("myCanvas");
+	var canvas = document.getElementById("myCanvas"); //Identify and comment the use of javascript variables in code!!!!!!!!!!!!!!!!!!!!!
 	var ctx = canvas.getContext("2d");
 	var ballRadius = 10;
 	var ballColor = "#8CFFFB"; // variable and the starting color of the ball & paddle
@@ -67,7 +67,7 @@
 	document.addEventListener("mousemove", mouseMoveHandler, false);
 
 	function keyDownHandler(e) {
-		if(e.key == "Right" || e.key == "ArrowRight") {
+		if(e.key == "Right" || e.key == "ArrowRight") { //Identify and comment use of an if-then-else statement in code!!!!!!!!!!!!!!!!!!!!!!!!!
 			rightPressed = true;
 		}
 		else if(e.key == "Left" || e.key == "ArrowLeft") {
@@ -267,7 +267,7 @@
 		function getRandomColor() { //changes the ball's color every time it hits a wall
 		var letters = "0123456789ABCDEF";
 		var ballColor = "#";
-		for (var i = 0; i < 6; i++) {
+		for (var i = 0; i < 6; i++) { //Identify and comment use of a for-loop (counter) in code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			ballColor += letters[Math.floor(Math.random() * 16)];
 		}
 		return ballColor;	
